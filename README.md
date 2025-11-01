@@ -2,16 +2,16 @@
 
 ## intro (리플렉션)
 
-https://github.com/metacoding-cookbook/springv1-intro.git
+https://github.com/metacoding-06-springboot-v1/springv1-intro
 
 ## ch01 (익명블로그)
 
-https://github.com/metacoding-cookbook/springv1-ch01.git
+https://github.com/metacoding-06-springboot-v1/spring-ch01
 
 ## ch02 (인증블로그)
 
-https://github.com/metacoding-cookbook/springv1-ch02.git
+https://github.com/metacoding-06-springboot-v1/spring-ch02
 
 ## ch03 (댓글)
 
-https://github.com/metacoding-cookbook/springv1-ch03.git
+https://github.com/metacoding-06-springboot-v1/spring-ch03
