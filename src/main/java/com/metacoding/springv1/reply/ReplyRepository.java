@@ -2,6 +2,8 @@ package com.metacoding.springv1.reply;
 
 import org.springframework.stereotype.Repository;
 
+import com.metacoding.springv1.board.Board;
+
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import java.util.Optional;
@@ -14,13 +16,13 @@ public class ReplyRepository {
     public void save(Reply reply) {
         em.persist(reply);
     }
+
     public Optional<Reply> findById(Integer id) {
         Reply reply = em.find(Reply.class, id);
-        return Optional.ofNullable(reply);  
+        return Optional.ofNullable(reply);
     }
-    public void deleteById(Integer id) {
-        em.createQuery("delete from Reply r where r.id = :id")
-            .setParameter("id", id)
-            .executeUpdate();
+
+    public void delete(Reply reply) {
+        em.remove(reply);
     }
 }

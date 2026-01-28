@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 
 import com.metacoding.springv1.board.*;
 
-@Import({ReplyRepository.class,BoardRepository.class})
+@Import({ ReplyRepository.class, BoardRepository.class })
 @DataJpaTest
 public class ReplyRepositoryTest {
 
@@ -33,14 +33,17 @@ public class ReplyRepositoryTest {
         System.out.println("username : " + reply.getBoard().getUser().getUsername());
         System.out.println("comment : " + reply.getComment());
     }
+
     @Test
-    public void deleteById_test(){
-        //given
+    public void delete_test() {
+        // given
         Integer replyId = 1;
         Integer boardId = 1;
-        //when
-        replyRepository.deleteById(replyId);
-        //eye
+        Reply reply = replyRepository.findById(replyId).get();
+
+        // when
+        replyRepository.delete(reply);
+        // eye
         Board board = boardRepository.findById(boardId).get();
         System.out.println("Reply Count : " + board.getReplies().size());
     }
