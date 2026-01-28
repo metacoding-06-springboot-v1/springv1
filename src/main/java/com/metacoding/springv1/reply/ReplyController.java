@@ -16,16 +16,17 @@ public class ReplyController {
     @PostMapping("/replies/save")
     public String save(ReplyRequest.SaveDTO requestDTO) {
         User sessionUser = (User) session.getAttribute("session");
-        if(sessionUser == null){
+        if (sessionUser == null) {
             throw new Exception401("로그인이 필요합니다.");
         }
         replyService.댓글쓰기(requestDTO, sessionUser, requestDTO.getBoardId());
         return "redirect:/boards/" + requestDTO.getBoardId();
     }
+
     @PostMapping("/replies/{id}/delete")
-    public String deleteById(@PathVariable Integer id) {
+    public String deleteById(@PathVariable("id") Integer id) {
         User sessionUser = (User) session.getAttribute("session");
-        if(sessionUser == null){
+        if (sessionUser == null) {
             throw new Exception401("로그인이 필요합니다.");
         }
         int boardId = replyService.댓글삭제(id, sessionUser.getId());
