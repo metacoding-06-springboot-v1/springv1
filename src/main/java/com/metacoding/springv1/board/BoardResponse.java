@@ -19,7 +19,7 @@ public class BoardResponse {
             this.title = board.getTitle();
             this.content = board.getContent();
         }
-    }   
+    }
 
     @Data
     public static class DetailDTO {
@@ -38,10 +38,11 @@ public class BoardResponse {
             this.userId = board.getUser().getId();
             this.username = board.getUser().getUsername();
             this.replies = board.getReplies().stream()
-                                .map(reply -> new ReplyDTO(reply))
-                                .collect(Collectors.toList());
+                    .map(reply -> new ReplyDTO(reply))
+                    .toList();
         }
-        // List 타입의 댓글을 담는 DTO                                        
+
+        // List 타입의 댓글을 담는 DTO
         @Data
         public class ReplyDTO {
             private Integer id;
